@@ -1,0 +1,26 @@
+<link rel="import" href="../../polymer/polymer.html">
+
+<!--
+	Element providing a codebox for JavaScript. Entered code is evaluated via
+	eval and the result printed to an output element.
+	Example:
+		<polymer-codebox code="2*3"></polymer-codebox>
+	@element polymer-codebox
+	@status unstable
+-->
+<dom-module id="polymer-codebox">
+	<template>
+		<div id="main">
+			<span>Code:</span>
+			<div id="code">
+				{{code:input}}
+			</div>
+			<span>Output</span>
+			<div id="output">
+			</div>
+		</div>
+	</template>
+	<script src="vendor/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+	<!-- REGISTRATION -->
+	<script src="./js/script.js"></script>
+</dom-module>
