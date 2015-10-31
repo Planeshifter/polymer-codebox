@@ -25,10 +25,10 @@ function widthChanged( newVal, oldVal ) {
 	if ( !isPositive( newVal ) ) {
 			err = new TypeError( 'width::invalid assignment. Must be a positive number. Value: `' + newVal + '`.' );
 			this.fire( 'err', err );
-			this.$.main.style.width  = oldVal;
+			this.$.main.style.width  = oldVal + 'px';
 			return;
 	}
-	this.$.main.style.width = newValue;
+	this.$.main.style.width = newValue + 'px';
 
 	this.fire( 'width', {
 		'type': 'change'

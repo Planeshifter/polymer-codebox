@@ -6,8 +6,7 @@
 */
 function attached() {
 	/* jshint validthis:true */
-	this._create()
-		._addListeners();
+	this._addListeners();
 } // end FUNCTION attached()
 
 

@@ -46,7 +46,7 @@ props.code = {
 * @type {Object}
 * @default undefined
 */
-props.editor = editor: {
+props.editor = {
 	type: Object
 }
 

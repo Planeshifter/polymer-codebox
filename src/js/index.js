@@ -30,8 +30,17 @@ element.detached = require( './lifecycle/detached.js' );
 
 element._init = require( './init' );
 
+// LISTENERS //
+
+element._addListeners = require( './listeners/add.js' );
+
+element._removeListeners = require( './listeners/remove.js' );
+
+element.onCodeChange = require( './listeners/codeChange.js' );
 
 // OBSERVERS //
+
+element._widthChanged = require( './observers/width.js' );
 
 
 // MANIPULATE //
