@@ -10,17 +10,16 @@
 -->
 <dom-module id="polymer-codebox">
 	<template>
+		<link rel="stylesheet" href="css/styles.css" media="screen" title="no title" charset="utf-8">
 		<div id="main">
 			<span>Code:</span>
-			<div id="code">
-				{{code:input}}
-			</div>
+			<div id="code"></div>
 			<span>Output</span>
 			<div id="output">
+				{{output}}
 			</div>
 		</div>
 	</template>
-	<script src="vendor/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
 	<!-- REGISTRATION -->
-	<script src="./js/script.js"></script>
+	<script src="./js/script.js" type="text/javascript" charset="utf-8"></script>
 </dom-module>

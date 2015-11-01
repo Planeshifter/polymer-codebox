@@ -37,7 +37,20 @@ props.backgroundColor = {
 * @default undefined
 */
 props.code = {
-	type: String
+	type: String,
+	observer: '_codeChanged'
+};
+
+/**
+* Returned value of code evaluation.
+*
+* @type {String}
+* @default empty string
+*/
+props.output = {
+	type: String,
+	readOnly: true,
+	value: ''
 };
 
 /**
@@ -48,6 +61,17 @@ props.code = {
 */
 props.editor = {
 	type: Object
+}
+
+/**
+* Whether ACE-editor event listeners are invoked or not.
+*
+* @type {Boolean}
+* @default false
+*/
+props.silent = {
+	type: Boolean,
+	value: false
 }
 
 // EXPORTS //

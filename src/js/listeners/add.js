@@ -10,7 +10,7 @@
 function addListeners() {
 	/* jshint validthis:true */
 	this._removeListeners();
-	this.editor.getSession().on( 'change', this._codeChange );
+	this.editor.getSession().on( 'change', this.onEditorChange.bind( this ) );
 	return this;
 } // end FUNCTION addListeners()
 

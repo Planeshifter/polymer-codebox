@@ -36,11 +36,13 @@ element._addListeners = require( './listeners/add.js' );
 
 element._removeListeners = require( './listeners/remove.js' );
 
-element.onCodeChange = require( './listeners/codeChange.js' );
+element.onEditorChange = require( './listeners/editorChange.js' );
 
 // OBSERVERS //
 
 element._widthChanged = require( './observers/width.js' );
+
+element._codeChanged = require( './observers/code.js' );
 
 
 // MANIPULATE //
