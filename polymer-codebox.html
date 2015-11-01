@@ -6923,7 +6923,7 @@ this.fire('dom-change');
 @media screen {body {
 	text-align: left;
 }
-#code {
+#jsEditor {
 	width: 500px;
 	height: 200px;
 	font: 22px "Monaco","Menlo","Ubuntu Mono","Consolas","source-code-pro", monospace !important;
@@ -6942,7 +6942,7 @@ this.fire('dom-change');
 </style>
 		<div id="main">
 			<span>Code:</span>
-			<div id="code"></div>
+			<div id="jsEditor"></div>
 			<span>Output</span>
 			<div id="output">
 				{{output}}
@@ -7027,10 +7027,11 @@ require( 'brace/theme/chrome' );
 function init() {
 	/* jshint validthis:true */
 	var self = this;
-	this.editor = ace.edit( this.$.code );
-	this.editor.setTheme( 'ace/theme/chrome' );
+	this.editor = ace.edit( this.$.jsEditor );
 	this.editor.getSession().setMode( 'ace/mode/javascript' );
+	this.editor.setTheme( 'ace/theme/chrome' );
 	this.editor.setValue( this.code );
+	this.editor.clearSelection();
 	return this;
 } // end FUNCTION init()
 
@@ -7163,7 +7164,7 @@ module.exports = onEditorChange;
 */
 function removeListeners() {
 	/* jshint validthis:true */
-	this.editor.session.removeAllListeners( 'change' );
+	this.editor.session.removeListener( 'change', this.onEditorChange.bind( this ) );
 	return this;
 } // end FUNCTION removeListeners()
 
@@ -7206,15 +7207,12 @@ function codeChanged( newVal, oldVal ) {
 	if ( oldVal === void 0 ) {
 		return;
 	}
-	console.log( "oldVal:" + oldVal)
-	console.log( "newVal:" + newVal)
 	if ( !isString( newVal ) ) {
 			err = new TypeError( 'code::invalid assignment. Must be a string. Value: `' + newVal + '`.' );
 			this.fire( 'err', err );
 			this.code  = oldVal;
 			return;
 	}
-	console.log( newVal )
 	this.silent = true;
 	if ( this.editor.getValue() !== newVal ) {
 		this.editor.setValue( newVal );

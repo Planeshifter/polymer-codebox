@@ -9,7 +9,7 @@
 */
 function removeListeners() {
 	/* jshint validthis:true */
-	this.editor.session.removeAllListeners( 'change' );
+	this.editor.session.removeListener( 'change', this.onEditorChange.bind( this ) );
 	return this;
 } // end FUNCTION removeListeners()
 

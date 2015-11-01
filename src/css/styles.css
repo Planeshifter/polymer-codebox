@@ -1,7 +1,7 @@
 body {
 	text-align: left;
 }
-#code {
+#jsEditor {
 	width: 500px;
 	height: 200px;
 	font: 22px "Monaco","Menlo","Ubuntu Mono","Consolas","source-code-pro", monospace !important;

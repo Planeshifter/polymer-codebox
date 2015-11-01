@@ -16,10 +16,11 @@ require( 'brace/theme/chrome' );
 function init() {
 	/* jshint validthis:true */
 	var self = this;
-	this.editor = ace.edit( this.$.code );
-	this.editor.setTheme( 'ace/theme/chrome' );
+	this.editor = ace.edit( this.$.jsEditor );
 	this.editor.getSession().setMode( 'ace/mode/javascript' );
+	this.editor.setTheme( 'ace/theme/chrome' );
 	this.editor.setValue( this.code );
+	this.editor.clearSelection();
 	return this;
 } // end FUNCTION init()
 
