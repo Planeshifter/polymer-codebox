@@ -1,5 +1,12 @@
 'use strict';
 
+// MODULES //
+
+var ace = require( 'brace' );
+require( 'brace/mode/javascript' );
+require( 'brace/theme/chrome' );
+
+
 // INIT //
 
 /**
@@ -12,10 +19,6 @@ function init() {
 	this.editor = ace.edit( this.$.code );
 	this.editor.setTheme( 'ace/theme/chrome' );
 	this.editor.getSession().setMode( 'ace/mode/javascript' );
-	this.editor.getSession().on( 'change', function(e) {
-		self._refresh();
-	});
-	this.editor.session.setNewLineMode( 'unix' );
 	this.editor.setValue( this.code );
 	return this;
 } // end FUNCTION init()
